@@ -17,23 +17,20 @@ and forces you to describe dependencies between the synchronous and a-synchronou
 you can use the javascript library to maintain 'lists' of dependencies that need to be completed before you start 
 your dependent process.
 
+
 Usage
 =====
-var list = new subscritionList();
-list.subscribe() {string|array}
-list.onComplete() {function}
-list.finished() {string}
 
-
-Example
-=======
-
+```javascript
+// instnatiate our subscriptionList
 var list = new subscritionList();
 
+// subscribe an event to the list
 list.subscribe ("foo");
 // alternatively, you may subscribe using an array of event names
 list.subscribe (["foo", "bar"]);
 
+// set the complete handler
 list.onComplete(function() {
   // perform this when all events on this list have been finished
 });
@@ -42,3 +39,4 @@ list.onComplete(function() {
 someProcess.done(function() {
   list.finished("foo");
 });
+```
